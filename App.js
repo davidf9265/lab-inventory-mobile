@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// library imports
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createContext, useState } from 'react';
+
+// navigation stacks
+import NavigationStack from './src/navigation/NavigationStack';
+import TabNavigationStack from './src/navigation/TabNavigationStack';
+
+const Stack = createStackNavigator();
+
+export const userContext = createContext({
+  auth: false,
+  setAuth: () => {}
+})
 
 export default function App() {
+  const [auth, setAuth] = useState(false);
+
+  const authContextValue = {
+    auth,
+    setAuth
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <userContext.Provider value={authContextValue}>
+      <NavigationContainer>
+        {auth ? <TabNavigationStack/> : <NavigationStack/>}
+      </NavigationContainer>
+    </userContext.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
