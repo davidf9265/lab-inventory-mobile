@@ -1,6 +1,10 @@
+// library imports
 import { Button, StyleSheet } from "react-native";
-
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
+
+// custom components
+import ItemImageRegister from "../../components/User/ItemImageRegister";
+
 
 export default function UserRegisterItems() {
   return (
@@ -12,6 +16,7 @@ export default function UserRegisterItems() {
       <TextInput style={styles.input} placeholder="Categoría" />
       <TextInput style={styles.input} placeholder="Tipo" />
       <TextInput style={styles.input} placeholder="Propiedades" />
+      <ItemImageRegister/>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Create Item</Text>
       </TouchableOpacity>
