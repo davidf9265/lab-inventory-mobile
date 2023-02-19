@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export default function userRegisterItems() {
+export default function userViewItems() {
     return (
         <View style={styles.container}>
         <Text>Register Item</Text>
