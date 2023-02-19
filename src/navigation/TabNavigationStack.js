@@ -5,11 +5,12 @@ import { TouchableOpacity, StyleSheet } from "react-native";
 import { useContext } from "react";
 
 // screens
-import UserRegisterItems from "../screens/dashboards/userRegisterItems";
+import UserRegisterItems from "../screens/fragments/user/userRegisterItems";
 import genericRegisterContainer from "../screens/dashboards/genericRegisterContainer";
 
 // contexts
 import { userContext } from "../../App";
+import userViewContainers from "../screens/dashboards/genericContainersView";
 
 const Tab = createBottomTabNavigator();
 
@@ -39,8 +40,17 @@ export default function TabNavigatorStack() {
         }}
       />
       <Tab.Screen
-        name="Containers"
+        name="Add Container"
         component={genericRegisterContainer}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="archive" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Containers"
+        component={userViewContainers}
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="archive" color={color} size={size} />

@@ -6,7 +6,7 @@ import { map, size } from 'lodash';
 import axios from "axios";
 
 // custom components
-import ItemImageRegister from "../../components/User/ItemImageRegister";
+import ItemImageRegister from "../../../components/User/ItemImageRegister";
 
 
 export default function UserRegisterItems() {
