@@ -5,29 +5,26 @@ import { TouchableOpacity, StyleSheet } from "react-native";
 import { useContext } from "react";
 
 // screens
-import UserRegisterItems from "../screens/fragments/user/userRegisterItems";
-import genericRegisterContainer from "../screens/dashboards/genericRegisterContainer";
+import UserRegisterItems from "@Screens/fragments/user/userRegisterItems";
+import GenericRegisterContainer from "@Screens/dashboards/genericRegisterContainer";
+import UserViewContainers from "@Screens/dashboards/genericContainersView";
 
 // contexts
-import { userContext } from "../../App";
-import userViewContainers from "../screens/dashboards/genericContainersView";
+import { userContext } from "@Root/App";
 
 const Tab = createBottomTabNavigator();
 
-
-
 export default function TabNavigatorStack() {
+  const { auth, setAuth } = useContext(userContext);
 
-    const { auth, setAuth } = useContext(userContext);
-
-    const handleLogout   = () => {
-        setAuth(false);
-    }
+  const handleLogout = () => {
+    setAuth(false);
+  };
 
   return (
     <Tab.Navigator
       screenOptions={{
-        headerRight: () => <TouchableLogoutIcon handleLogout={handleLogout}/>,
+        headerRight: () => <TouchableLogoutIcon handleLogout={handleLogout} />,
       }}
     >
       <Tab.Screen
@@ -41,7 +38,7 @@ export default function TabNavigatorStack() {
       />
       <Tab.Screen
         name="Add Container"
-        component={genericRegisterContainer}
+        component={GenericRegisterContainer}
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="archive" color={color} size={size} />
@@ -50,7 +47,7 @@ export default function TabNavigatorStack() {
       />
       <Tab.Screen
         name="Containers"
-        component={userViewContainers}
+        component={UserViewContainers}
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="archive" color={color} size={size} />
@@ -63,18 +60,16 @@ export default function TabNavigatorStack() {
 }
 
 const TouchableLogoutIcon = (props) => {
-    const { handleLogout } = props; 
-    return (
-        <TouchableOpacity onPress={ handleLogout } style={styles.TouchableLogoutIcon}>
-            <MaterialCommunityIcons name="logout" size={25} />
-        </TouchableOpacity>
-    );
-}
-
+  const { handleLogout } = props;
+  return (
+    <TouchableOpacity onPress={handleLogout} style={styles.TouchableLogoutIcon}>
+      <MaterialCommunityIcons name="logout" size={25} />
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
-    TouchableLogoutIcon: {
-        marginRight: 15,
-    }
+  TouchableLogoutIcon: {
+    marginRight: 15,
+  },
 });
-
