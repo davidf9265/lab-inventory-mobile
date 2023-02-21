@@ -126,15 +126,17 @@ export default function UserRegisterItems() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    height: "100%",
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
   button: {
     backgroundColor: "#3f51b5",
     borderRadius: 5,
     padding: 10,
     marginHorizontal: 10,
+    marginBottom: 20
   },
   buttonText: {
     color: "#fff",

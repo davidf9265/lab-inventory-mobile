@@ -149,11 +149,6 @@ export default function UserRegisterItems() {
         onChangeText={(text) => handleChangeField("location", text)}
         placeholder="location"
       />
-      <ItemImageRegister
-        onChange={handleChangeFile}
-        imagesSelected={imagesSelected}
-        setImagesSelected={setImagesSelected}
-      />
       <TouchableOpacity style={styles.button} onPress={handleCreateItem}>
         <Text style={styles.buttonText}>Create Item</Text>
       </TouchableOpacity>
@@ -173,6 +168,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     marginHorizontal: 10,
+    marginBottom: 20
   },
   buttonText: {
     color: "#fff",

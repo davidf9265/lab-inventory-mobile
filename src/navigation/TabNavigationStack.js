@@ -8,6 +8,7 @@ import { useContext } from "react";
 import UserRegisterItems from "@Screens/fragments/user/userRegisterItems";
 import GenericRegisterContainer from "@Screens/dashboards/genericRegisterContainer";
 import UserViewContainers from "@Screens/dashboards/genericContainersView";
+import UserViewItems from "@Screens/fragments/user/userViewItems";
 
 // contexts
 import { userContext } from "@Root/App";
@@ -33,6 +34,15 @@ export default function TabNavigatorStack() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="plus" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Items"
+        component={UserViewItems}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="archive" color={color} size={size} />
           ),
         }}
       />
